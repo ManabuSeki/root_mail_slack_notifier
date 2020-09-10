@@ -16,9 +16,9 @@ import (
 // Config is configuration struct
 type Config struct {
 	WebhookURL string `json:"WebhookURL"`
-	Username   string `json:"Username"`
-	Channel    string `json:"Channel"`
-	IconEmoji  string `json:"IconEmoji"`
+	Username   string `json:"Username,omitempty"`
+	Channel    string `json:"Channel,omitempty"`
+	IconEmoji  string `json:"IconEmoji,omitempty"`
 	Color      string `json:"Color"`
 	HostName   string `json:"HostName"`
 }
@@ -46,21 +46,6 @@ func main() {
 	// WebhookURL
 	if config.WebhookURL == "" {
 		log.Fatal("WebhookURL is not setting")
-	}
-
-	// Username
-	if config.Username == "" {
-		config.Username = "RootMail"
-	}
-
-	// Channel
-	if config.Channel == "" {
-		config.Channel = "#general"
-	}
-
-	// IconEmoji
-	if config.IconEmoji == "" {
-		config.IconEmoji = ":email:"
 	}
 
 	// HostName
